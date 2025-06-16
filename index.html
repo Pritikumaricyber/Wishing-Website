@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday Cake Animation</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    canvas {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .block-audio {
+      display: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .message-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 500px;
+      padding: 20px 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 50;
+    }
+
+    .message-box.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Firework Canvas -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Cake + Text -->
+  <div class="content">
+    <div class="cake">
+      <div class="layer layer1"></div>
+      <div class="layer layer2"></div>
+      <div class="layer layer3"></div>
+      <div class="layer layerB1"></div>
+      <div class="layer layerB2"></div>
+      <div class="layer layerB3"></div>
+      <div class="icing"></div>
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+    </div>
+
+    <div class="text">
+      <p class="wish">Happy Birthday!</p>
+      <p class="name" id="namePlaceholder"></p>
+    </div>
+  </div>
+
+  <!-- Message Box -->
+  <div class="message-box" id="messageBox">
+    <p>
+      On this beautiful day, I just want you to know how truly special you are.
+      Your presence brings so much light, laughter, and warmth to everyone around you.<br><br>
+      May this birthday be filled with all the things that make your heart smile —
+      love that’s genuine, friendships that are deep, moments that are peaceful,
+      and dreams that feel closer than ever.<br><br>
+      Life has many beautiful chapters, and I hope this next one brings you success, joy,
+      and surprises that make your soul shine. Keep being you — kind, strong, thoughtful,
+      and full of magic.<br><br>
+      Wishing you a day as amazing as you are, and a year ahead filled with blessings
+      and new adventures.<br><br>
+      <strong>Happy Birthday! 💖</strong>
+    </p>
+  </div>
+
+  <!-- Firework Sounds -->
+  <div class="block-audio">
+    <audio class="launch" src="sounds/launch1.wav" preload="auto"></audio>
+    <audio class="launch" src="sounds/launch2.wav" preload="auto"></audio>
+    <audio class="exp" src="sounds/explosion1.mp3" preload="auto"></audio>
+    <audio class="exp" src="sounds/explosion2.mp3" preload="auto"></audio>
+  </div>
+
+  <!-- Birthday Song -->
+  <audio id="birthdaySong" src="happy-birthday-254480.mp3" preload="auto" loop></audio>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="firework.js"></script>
+ <script>
+  // Fireworks after cake animation
+  setTimeout(() => {
+    document.getElementById('canvas').style.display = 'block';
+    startFireworks();
+  }, 4500);
+
+  // Name from URL
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  if (name) {
+    document.getElementById("namePlaceholder").textContent = name;
+  }
+
+  // CLICK LOGIC
+  let clickCount = 0;
+  document.body.addEventListener("click", () => {
+    clickCount++;
+
+    if (clickCount === 1) {
+      // First click: play birthday song
+      const song = document.getElementById("birthdaySong");
+      song.play().catch(err => console.log("Autoplay error:", err));
+    }
+
+    if (clickCount === 2) {
+      // Second click: show message box
+      document.getElementById("messageBox").classList.add("show");
+    }
+  });
+</script>
+
+</body>
+</html>

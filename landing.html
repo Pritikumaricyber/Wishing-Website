@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Name</title>
+  <style>
+    body {
+      background: #fce4ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .form-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #f50057;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Whose Birthday Is It?</h2>
+    <input type="text" id="nameInput" placeholder="Enter name..." />
+    <br/>
+    <button onclick="goToBirthday()">Celebrate 🎉</button>
+  </div>
+
+  <script>
+    function goToBirthday() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (name !== "") {
+        window.location.href = `index.html?name=${encodeURIComponent(name)}`;
+      } else {
+        alert("Please enter a name!");
+      }
+    }
+  </script>
+</body>
+</html>

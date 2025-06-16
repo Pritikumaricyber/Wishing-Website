@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fireworks Display</title>
+  <style>
+    canvas {
+      display: block;
+    }
+    .block-audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- Hidden audio elements for launch and explosion sounds -->
+  <div class="block-audio">
+    <audio class="launch" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+    <audio class="launch" src="https://www.soundjay.com/button/beep-08b.wav" preload="auto"></audio>
+    <audio class="exp" src="https://www.soundjay.com/explosion/explosion-01.mp3" preload="auto"></audio>
+    <audio class="exp" src="https://www.soundjay.com/explosion/explosion-02.mp3" preload="auto"></audio>
+  </div>
+
+  <!-- jQuery and your JS file -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="firework.js"></script>
+</body>
+</html>
