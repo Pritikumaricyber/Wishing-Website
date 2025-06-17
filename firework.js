@@ -72,7 +72,7 @@ $(function () {
 	var listLaunchSound = $("audio.launch");
 
 	// define array position of text
-	var textString = "happybirthdaybhaiya";
+	var textString = "happybirthday";
 	var textMatrix = [ 
 		
   // Row 0 - HAPPY
@@ -81,8 +81,8 @@ $(function () {
   // Row 1 - BIRTHDAY
   3,1, 4,1, 5,1, 6,1, 7,1, 8,1, 9,1, 10,1,
 
-  // Row 2 - BHAIYA
-  3.5,2, 4.5,2, 5.5,2, 6.5,2, 7.5,2, 8.5,2];
+  // Row 2 - 
+  //3.5,2, 4.5,2, 5.5,2, 6.5,2, 7.5,2, 8.5,2];
 	var chars = {
 		h: [0,0,0,1,0,2,0,3,0,4,0,5,0,6,0,7,1,3,2,3,3,3,4,3,5,0,5,1,5,2,5,3,5,4,5,5,5,6,5,7],
 		a: [2,0,2,1,2,2,1,2,1,3,1,4,1,5,0,5,0,6,0,7,2,5,3,0,3,1,3,2,4,2,4,3,4,4,4,1,5,5,5,6,5,7,3,5],
